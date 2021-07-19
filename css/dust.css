@@ -1,0 +1,332 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    background-image: url(../images/p0101_m.png);
+}
+
+/*
+*モーダル
+*/
+.modal-content {
+    position:fixed;
+    display:none;
+    z-index:2;
+    width:40%;
+    margin:0;
+    padding:10px 20px;
+    border:2px solid #aaa;
+    background:#eee;
+}
+.modal-content table{
+	margin:0 auto;
+}
+
+.modal-content caption{
+	margin-bottom: 20px;
+	font-weight: bold;
+	line-height: 30px;
+	font-size: 20px;
+}
+.modal-content table td{
+    text-align: center;
+}
+
+.modal-content p {
+    margin:0;
+    padding:0;
+}
+.modal-overlay {
+    z-index:1;
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:120%;
+    background-color:rgba(0,0,0,0.75);
+}
+.modal-open {
+    color: white;
+}
+.modal-open:hover {
+    cursor:pointer;
+    color:black;
+    font-weight: bold;
+}
+.modal-close {
+    color:#00f;
+    /*text-decoration:underline;*/
+}
+.modal-close:hover {
+    cursor:pointer;
+    color:#f00;
+}
+.hoge{
+    width: 100%;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size:20px;
+    margin-bottom: 15px;
+}
+label > input {
+    display:none;   /* アップロードボタンのスタイルを無効にする */
+}
+label {
+    color: #000;                 /* ラベルテキストの色を指定する */
+    background-color: #ddd;/* ラベルの背景色を指定する */
+    padding: 5px;                  /* ラベルとテキスト間の余白を指定する */
+    border: double 4px #000;/* ラベルのボーダーを指定する */
+}
+
+
+/*
+*header
+*/
+header{
+    width: 100%;
+    background-color: #55c500;
+    height: 78px;
+    position: fixed;
+    top: 0;
+    border-bottom: solid 1px black;
+}
+header h1{
+    padding-top: 18px;
+    margin-left: 5%;
+    width: 15%;
+    font-size: 35px;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Lobster', cursive;
+    color: white;
+    float: left;
+}
+header #deleteDust{
+    text-align: right;
+    padding-right: 15px;
+    float: right;
+}
+
+header nav{
+    overflow: hidden;
+    margin-top: 40px;
+    float:right;
+    position: relative;
+    left: 5.8%;
+}
+header li{
+    background-color: #F08080;
+    border: solid black 1px;
+    width: 150px;
+    text-align: center;
+    border-radius: 20px;
+    float: left;
+    margin-left: 10px;
+}
+header li a{
+    display: block;
+    color: white;
+    padding: 3%;
+    border-radius: 20px;
+}
+header li a:hover{
+    font-weight: bold;
+    color: black;
+    background-color: #FF6347;
+}
+.btn-group{
+    margin-top: 35px;
+    background-color: #55c500;
+    float: right;
+}
+
+/*
+*contents類（left+right）
+*/
+#contents{
+    overflow: hidden;
+    width: 100%;
+    background: rgba(255,255,255,0.7);
+    height: 1000px;
+}
+
+/*
+*本文
+*/
+#left{
+    margin-top: 100px;
+    width: 55%;
+    float: left;
+    height: 100%;
+    margin-left: 5.5%;
+}
+#left #left_message{
+    width: 630px;
+    background-color: white;
+    margin-left: 3px;
+    margin-top:1px;
+    color: red;
+    font-size: 22px;
+    margin: 0 auto;
+}
+#left span{
+    font-weight: bold;
+}
+#left h2{
+    border-bottom: solid 5px black;
+    margin-bottom: 8px;
+    text-align: center;
+}
+#con{
+    margin: 0 auto;
+    margin-right: 10%;
+    background-color: #fff;
+    clear:left;
+    font-size: 25px;
+    border: solid 1px black;
+    border-radius: 20px;
+    margin-top:25px;
+    width: 80%;
+}
+#con th{
+    background-color: #fff;
+    box-shadow:0px 0px 1px 1px #777;
+    -moz-box-shadow:0px 0px 1px 1px #777;
+    -webkit-box-shadow:0px 0px 1px 1px #777;
+    font-size: 30px;
+}
+#con td{
+    font-size: 15px;
+    color: #00AFEC;
+}
+#con a{
+    display: block;
+    color: black;
+    color: #00AFEC;
+    text-align: center;
+}
+#con td a{
+    color: black;
+    display: table;
+    margin: 0 auto;
+}
+#con a:hover{
+    background-color: #eee;
+    font-weight: bold;
+}
+#a{
+    width: 900px;
+}
+#a p{
+    font-size: 30px;
+    padding: 15px;
+    color: black;
+}
+
+/*
+*アカウント類
+*/
+#right{
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    margin-top: 78px;
+    padding-top: 8px;
+    width: 38%;
+    padding-right: 2%;
+    padding-left: 2%;
+    float: right;
+    height: 100%;
+    border-left: solid 1px black;
+    background-color: #eee;
+}
+#submit{
+    text-align: right;
+    font-size: 25px;
+}
+#right h2{
+    border-bottom: solid 5px black;
+    margin-bottom: 15px;
+    text-align: center;
+}
+#right #a{
+    display: block;
+    font-size: 22px;
+    position: relative;
+    left: 20%;
+    top: 20px;
+}
+#table{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow:0px 0px 6px 3px #777;
+    -moz-box-shadow:0px 0px 6px 3px #777;
+    -webkit-box-shadow:0px 0px 6px 3px #777;
+    height: 250px;
+}
+#table img{
+    border-radius: 50%;
+}
+
+#table td{
+    text-align: center;
+    font-size: 65px;
+    padding-bottom: 20px;
+    padding-bottom: 20px;
+}
+#table td p{
+    font-size: 25px;
+    color: #888;
+}
+#back-top{
+    position: fixed;
+    top:680px;
+    left: 56%;
+}
+#back-top:hover{
+    opacity: 0.5;
+}
+
+/*
+*バリデーションメッセージ
+*/
+#message{
+    border:solid 1px blue;
+    width: 300px;
+    position: relative;
+    top:-40px;
+    right:150px;
+}
+#message p{  
+    color: #0f0;
+    text-align: center;
+    line-height: 30px;
+}
+#message pre{
+    color: orange;
+    font-weight:bold;
+}
+#message li{
+    color: red;
+}
+#messages{
+    background-color: blue;
+    border-radius: 10px;
+    position: relative;
+    top:-40px;
+    right:150px;
+    padding: 1%;
+}
+#messages li{
+    color: white;
+}
+
+
