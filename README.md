@@ -1,8 +1,12 @@
-<<<<<<< HEAD
+# Study Note
+
+- php: 7.3.11
+- mysql: 5.6.35
+
 
 
 ```sql
-
+# アカウントテーブル
 CREATE TABLE `accounts` (
   `a_no` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `a_name` varchar(255) NOT NULL,
@@ -11,6 +15,7 @@ CREATE TABLE `accounts` (
   PRIMARY KEY (`a_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 
 
+# パスワードテーブル
 CREATE TABLE `password` (
   `a_no` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `p_pass` varchar(255) NOT NULL,
@@ -19,6 +24,7 @@ CREATE TABLE `password` (
   CONSTRAINT `password_ibfk_1` FOREIGN KEY (`a_no`) REFERENCES `accounts` (`a_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
+# 科目テーブル
 CREATE TABLE `subjects` (
   `subject_no` int(3) unsigned NOT NULL AUTO_INCREMENT,
   `subject_name` varchar(20) NOT NULL,
@@ -28,6 +34,7 @@ CREATE TABLE `subjects` (
   CONSTRAINT `subjects_ibfk_1` FOREIGN KEY (`a_no`) REFERENCES `accounts` (`a_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
+# ノートの画像テーブル
 CREATE TABLE `note_images` (
   `image_no` int(5) NOT NULL AUTO_INCREMENT,
   `image_name` varchar(255) NOT NULL,
@@ -37,6 +44,7 @@ CREATE TABLE `note_images` (
   CONSTRAINT `note_images_ibfk_1` FOREIGN KEY (`a_no`) REFERENCES `accounts` (`a_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
+# ノートテーブル
 CREATE TABLE `notes` (
   `n_no` int(3) unsigned NOT NULL AUTO_INCREMENT,
   `n_title` varchar(255) NOT NULL,
@@ -54,11 +62,4 @@ CREATE TABLE `notes` (
   CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`a_no`) REFERENCES `accounts` (`a_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ```
-=======
-# Study Note
 
-- php: 7.3.11
-- mysql: 5.6.35
-
-
->>>>>>> d9eecc4ffcf08cf7e94f67b6e730accd01519102
