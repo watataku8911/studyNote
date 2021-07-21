@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 ```sql
@@ -53,3 +54,11 @@ CREATE TABLE `notes` (
   CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`a_no`) REFERENCES `accounts` (`a_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ```
+=======
+# Study Note
+
+- php: 7.3.11
+- mysql: 5.6.35
+
+
+>>>>>>> d9eecc4ffcf08cf7e94f67b6e730accd01519102
