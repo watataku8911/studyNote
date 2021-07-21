@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
 		$validationMsg[]="共有パスワードは必須入力です。";
 	}
 
-	if($pass == $share_pass) {
+	if($pass != $share_pass) {
 		$validationMsg[] ="ログインパスワードと共有パスワードは同じではいけません。";
 	}
 
@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
 		$_SESSION["validationMsg"]=$validationMsg;
 
 		$_SESSION["userName"]=$userName;
-		header("Location:../index_sub.php");
+		header("Location:../index.php");
 		die();
 	}
 
@@ -91,7 +91,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
 		if($row=$stmt->fetch(PDO::FETCH_ASSOC)){
 			$a_no=$row["max(a_no)"];
 			$_SESSION["insertAccount"]=$a_no;
-			header("Location:../index_sub.php");
+			header("Location:../index.php");
 		}
 	}catch(PDOException $e){
 		echo $e;

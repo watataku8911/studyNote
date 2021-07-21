@@ -270,6 +270,7 @@ header h1 {
   color: #888;
 }
 #clock_frame {
+  height: 40px;
   margin-top: 15px;
   text-align: center;
 }

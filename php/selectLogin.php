@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
 	if(!empty($validationMsgs)){
 		$_SESSION["validationMsgs"]=$validationMsgs;
 
-		header("Location:../index_sub.php");
+		header("Location:../index.php");
 		die();
 	}
 
@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
 		if($row=$stmt->fetch(PDO::FETCH_ASSOC)){
 			$a_no=$row["a_no"];
 		}else{
-			$validationMsgs[]="ログイン失敗しました。";
+			$validationMsgs[]="a_noの取得に失敗しました。";
 			if(!empty($validationMsgs)){
 				$_SESSION["validationMsgs"]=$validationMsgs;
 
@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
 			$_SESSION["loginAccount"]=$a_no;
 			header("Location:../mypage.php");
 		}else{
-			$validationMsgs[]="ログイン失敗しました。";
+			$validationMsgs[]="ここに入ってるログイン失敗しました。";
 		}
 		
 	}catch(PDOException $e){
@@ -68,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
 	if(!empty($validationMsgs)){
 		$_SESSION["validationMsgs"]=$validationMsgs;
 
-		header("Location:../index_sub.php");
+		header("Location:../index.php");
 		die();
 	}
 

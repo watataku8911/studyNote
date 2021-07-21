@@ -146,8 +146,8 @@ session_destroy();
 <div id="con2" class="modal-content">
 	<form action="php/selectLogin.php" method="post">
 		<h2>ログイン</h2>
-			<input type="text" name="user" placeholder="アカウント名" value="watano" class="hoge">
-			<input type="password" name="pass" placeholder="ログインパスワード" value="911watataku" class="hoge">
+			<input type="text" name="user" placeholder="アカウント名" value="Guest" class="hoge">
+			<input type="password" name="pass" placeholder="ログインパスワード" value="passW0rd" class="hoge">
 			<input type="submit" value="ログイン">
 		</form>
 	</div>
