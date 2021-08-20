@@ -1,5 +1,6 @@
 # Study Note
 
+<img src="https://firebasestorage.googleapis.com/v0/b/watataku-portfolio.appspot.com/o/%E3%83%9E%E3%82%A4%E3%83%98%E3%82%9A%E3%83%BC%E3%82%B7%E3%82%99_%F0%9F%94%8A.png?alt=media&token=ded09f36-4c73-4acd-9bc4-434d3178c5e9">
 - php: 7.3.11
 - mysql: 5.6.35
 
