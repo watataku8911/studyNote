@@ -4,7 +4,7 @@
 - php: 7.3.11
 - mysql: 5.6.35
 
-
+## MySql
 
 ```sql
 # アカウントテーブル
@@ -31,7 +31,6 @@ CREATE TABLE `subjects` (
   `subject_name` varchar(20) NOT NULL,
   `a_no` int(3) unsigned DEFAULT NULL,
   PRIMARY KEY (`subject_no`),
-  KEY `a_no` (`a_no`),
   CONSTRAINT `subjects_ibfk_1` FOREIGN KEY (`a_no`) REFERENCES `accounts` (`a_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
@@ -41,7 +40,6 @@ CREATE TABLE `note_images` (
   `image_name` varchar(255) NOT NULL,
   `a_no` int(5) unsigned NOT NULL,
   PRIMARY KEY (`image_no`),
-  KEY `a_no` (`a_no`),
   CONSTRAINT `note_images_ibfk_1` FOREIGN KEY (`a_no`) REFERENCES `accounts` (`a_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
@@ -58,9 +56,64 @@ CREATE TABLE `notes` (
   `deletes` datetime DEFAULT NULL,
   `share` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`n_no`),
-  KEY `a_no` (`a_no`),
-  KEY `subject_no` (`subject_no`),
-  CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`a_no`) REFERENCES `accounts` (`a_no`)
+  CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`a_no`) REFERENCES `accounts` (`a_no`),
+  CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`subject_no`) REFERENCES `subjects` (`subject_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+```
+## PostgreSQL
+
+```
+# アカウントテーブル
+CREATE TABLE accounts (
+  a_no SERIAL NOT NULL,
+  a_name varchar(255) NOT NULL,
+  a_image varchar(255) DEFAULT NULL,
+  delete_day integer DEFAULT NULL,
+  PRIMARY KEY (a_no)
+)
+
+# パスワードテーブル
+CREATE TABLE password (
+  a_no SERIAL NOT NULL,
+  p_pass varchar(255) NOT NULL,
+  share_pass varchar(255) NOT NULL,
+  PRIMARY KEY (a_no),
+  CONSTRAINT password_ibfk_1 FOREIGN KEY (a_no) REFERENCES accounts (a_no)
+)
+
+# 科目テーブル
+CREATE TABLE subjects (
+  subject_no serial NOT NULL,
+  subject_name varchar(20) NOT NULL,
+  a_no integer DEFAULT NULL,
+  PRIMARY KEY (subject_no),
+  CONSTRAINT subjects_ibfk_1 FOREIGN KEY (a_no) REFERENCES accounts (a_no)
+)
+
+# ノートの画像テーブル
+CREATE TABLE note_images (
+  image_no serial NOT NULL,
+  image_name varchar(255) NOT NULL,
+  a_no integer NOT NULL,
+  PRIMARY KEY (image_no),
+  CONSTRAINT note_images_ibfk_1 FOREIGN KEY (a_no) REFERENCES accounts (a_no)
+)
+
+# ノートテーブル
+CREATE TABLE notes (
+  n_no serial NOT NULL,
+  n_title varchar(255) NOT NULL,
+  n_body text NOT NULL,
+  created timestamp NOT NULL,
+  a_no integer NOT NULL,
+  subject_no integer DEFAULT NULL,
+  is_enabled boolean DEFAULT NULL,
+  deleted timestamp DEFAULT NULL,
+  deletes timestamp DEFAULT NULL,
+  share boolean DEFAULT NULL,
+  PRIMARY KEY (n_no),
+  CONSTRAINT notes_ibfk_1 FOREIGN KEY (a_no) REFERENCES accounts (a_no),
+  CONSTRAINT notes_ibfk_2 FOREIGN KEY (subject_no) REFERENCES subjects (subject_no)
+)
 ```
 
